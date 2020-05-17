@@ -1,3 +1,12 @@
+$steamDirs = "Installers"
+$steamFiles = "commandline.txt", "GTAVLanguageSelect.exe", "GTAVLauncher.exe", "GTA5.exe", "installscript.vdf", "PlayGTAV.exe", "steam_api64.dll"
+
+$epicDirs = ".egstore", "ReadMe", "Redistributables", "x64\data"
+$epicFiles = "update\x64\data\errorcodes\chinesesimp.txt", "EOSSDK-Win64-Shipping.dll", "GPUPerfAPIDX11-x64.dll", "GTA5.exe", "NvPmApi.Core.win64.dll", "PlayGTAV.exe", "version.txt"
+
+$generalFiles = "update\update.rpf", "update\x64\data\errorcodes\american.txt", "update\x64\data\errorcodes\chinese.txt", "update\x64\data\errorcodes\french.txt", "update\x64\data\errorcodes\german.txt", "update\x64\data\errorcodes\italian.txt", "update\x64\data\errorcodes\japanese.txt", "update\x64\data\errorcodes\korean.txt", "update\x64\data\errorcodes\mexican.txt", "update\x64\data\errorcodes\polish.txt", "update\x64\data\errorcodes\portuguese.txt", "update\x64\data\errorcodes\russian.txt", "update\x64\data\errorcodes\spanish.txt", "x64\metadata.dat", "bink2w64.dll", "common.rpf", "d3dcompiler_46.dll", "d3dcsx_46.dll", "GFSDK_ShadowLib.win64.dll", "GFSDK_TXAA.win64.dll", "GFSDK_TXAA_AlphaResolve.win64.dll", "x64a.rpf", "x64b.rpf", "x64c.rpf", "x64d.rpf", "x64e.rpf", "x64f.rpf", "x64g.rpf", "x64h.rpf", "x64i.rpf", "x64j.rpf", "x64k.rpf", "x64l.rpf", "x64m.rpf", "x64n.rpf", "x64o.rpf", "x64p.rpf", "x64q.rpf", "x64r.rpf", "x64s.rpf", "x64t.rpf", "x64u.rpf", "x64v.rpf", "x64w.rpf"
+$generalDirs = "x64\audio", "update\x64\dlcpacks"
+
 do {
     $gtavDir = Read-Host "Enter the location where to store the merged files"
 }while ($gtavDir -eq "")
@@ -11,15 +20,6 @@ Else { $generalSrc = $epic }
 $epicDir = Join-Path $gtavDir "Epic"
 $steamDir = Join-Path $gtavDir "Steam"
 $generalDir = Join-Path $gtavDir "General"
-
-$steamDirs = "Installers"
-$steamFiles = "commandline.txt", "GTAVLanguageSelect.exe", "GTAVLauncher.exe", "GTA5.exe", "installscript.vdf", "PlayGTAV.exe", "steam_api64.dll"
-
-$epicDirs = ".egstore", "ReadMe", "Redistributables", "x64\data"
-$epicFiles = "update\x64\data\errorcodes\chinesesimp.txt", "EOSSDK-Win64-Shipping.dll", "GPUPerfAPIDX11-x64.dll", "GTA5.exe", "NvPmApi.Core.win64.dll", "PlayGTAV.exe", "version.txt"
-
-$generalFiles = "update\update.rpf", "update\x64\data\errorcodes\american.txt", "update\x64\data\errorcodes\chinese.txt", "update\x64\data\errorcodes\french.txt", "update\x64\data\errorcodes\german.txt", "update\x64\data\errorcodes\italian.txt", "update\x64\data\errorcodes\japanese.txt", "update\x64\data\errorcodes\korean.txt", "update\x64\data\errorcodes\mexican.txt", "update\x64\data\errorcodes\polish.txt", "update\x64\data\errorcodes\portuguese.txt", "update\x64\data\errorcodes\russian.txt", "update\x64\data\errorcodes\spanish.txt", "x64\metadata.dat", "bink2w64.dll", "common.rpf", "d3dcompiler_46.dll", "d3dcsx_46.dll", "GFSDK_ShadowLib.win64.dll", "GFSDK_TXAA.win64.dll", "GFSDK_TXAA_AlphaResolve.win64.dll", "x64a.rpf", "x64b.rpf", "x64c.rpf", "x64d.rpf", "x64e.rpf", "x64f.rpf", "x64g.rpf", "x64h.rpf", "x64i.rpf", "x64j.rpf", "x64k.rpf", "x64l.rpf", "x64m.rpf", "x64n.rpf", "x64o.rpf", "x64p.rpf", "x64q.rpf", "x64r.rpf", "x64s.rpf", "x64t.rpf", "x64u.rpf", "x64v.rpf", "x64w.rpf"
-$generalDirs = "x64\audio", "update\x64\dlcpacks"
 
 if (-not (Test-Path -Path (Join-Path $steamDir "update\x64\data\errorcodes"))) { mkdir -p (Join-Path $steamDir "update\x64\data\errorcodes") }
 if (-not (Test-Path -Path (Join-Path $steamDir "x64"))) { mkdir -p (Join-Path $steamDir "x64") }
