@@ -56,7 +56,8 @@ if ($steam -ne ""){
     cmd /c mklink /j $steam $steamDir
 }
 Else {
-    $steam=Read-Host "Enter the path you are going to install steam GTAV to" -ForegroundColor Yellow
+    Write-Host "Enter the path you are going to install steam GTAV to" -ForegroundColor Yellow
+    $steam=Read-Host
     cmd /c mklink /j $steam $steamDir
 }
 if($epic -ne ""){
@@ -64,7 +65,8 @@ if($epic -ne ""){
     cmd /c mklink /j $epic $epicDir
 }
 Else {
-    $epic=Read-Host "Enter the path you are going to install epic GTAV to" -ForegroundColor Yellow
+    Write-Host "Enter the path you are going to install epic GTAV to" -ForegroundColor Yellow
+    $epic=Read-Host
     Write-Host "!!!!ATTENTION!!!!" -ForegroundColor Red
     Write-Host "Press anykey after you have start the epic GTAV download process and pause to make epic scan the existed files"
     [Console]::Readkey()
