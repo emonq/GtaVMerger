@@ -32,7 +32,7 @@ if ($steam -ne "") {
     Foreach ($item in $steamFiles) { Copy-Item (Join-Path $steam $item) (Join-Path $steamDir $item) }
     Foreach ($item in $steamDirs) { Copy-Item (Join-Path $steam $item) (Join-Path $steamDir $item) -recurse }
 }
-if ($epic -ne ""){
+if ($epic -ne "") {
     Foreach ($item in $epicDirs) { Copy-Item (Join-Path $epic $item) (Join-Path $epicDir $item) -recurse }
     Foreach ($item in $epicFiles) { Copy-Item (Join-Path $epic $item) (Join-Path $epicDir $item) }
 }
@@ -51,27 +51,29 @@ Foreach ($item in $generalDirs) {
     cmd /c mklink /j (Join-Path $epicDir $item) (Join-Path $generalDir $item)
     cmd /c mklink /j (Join-Path $steamDir $item) (Join-Path $generalDir $item)
 }
-if ($steam -ne ""){
+if ($steam -ne "") {
     Rename-Item -Path $steam $steam"_old"
     cmd /c mklink /j $steam $steamDir
 }
 Else {
     Write-Host "Enter the path you are going to install steam GTAV to" -ForegroundColor Yellow
-    $steam=Read-Host
+    $steam = Read-Host
     cmd /c mklink /j $steam $steamDir
 }
-if($epic -ne ""){
+if ($epic -ne "") {
     Rename-Item -Path $epic $epic"_old"
     cmd /c mklink /j $epic $epicDir
 }
 Else {
     Write-Host "Enter the path you are going to install epic GTAV to" -ForegroundColor Yellow
-    $epic=Read-Host
+    $epic = Read-Host
     Write-Host "!!!!ATTENTION!!!!" -ForegroundColor Red
     Write-Host "Press anykey after you have started the epic GTAV download process and pause to make epic scan the existed files"
     [Console]::Readkey()
-    Remove-item $epic\*
-    Remove-Item $epic
+    if (Test-Path -Path $epic) {
+        Remove-Item $epic\*
+        Remove-Item $epic
+    }
     cmd /c mklink /j $epic $epicDir
 }
 Write-Host "Merge completed! The old directories have been renamed to NAME_OLD, remove them manually after you ensure the game runs normally.`nPress anykey to exit" -ForegroundColor Green
