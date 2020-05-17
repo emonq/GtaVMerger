@@ -1,10 +1,10 @@
 do {
-    $gtavDir = Read-Host "输入你想存放合并后游戏文件的位置"
+    $gtavDir = Read-Host "Enter the location where to store the merged files"
 }while ($gtavDir -eq "")
-$steam = Read-Host "输入steam的gta文件夹位置,如果没有直接回车"
-$epic = Read-Host "输入epic的gta文件夹位置,如果没有直接回车"
+$steam = Read-Host "Enter the location where the steam GTA is, press ENTER if you don't have it yet"
+$epic = Read-Host "Enter the location where the epic GTA is, press ENTER if you don't have it yet"
 
-if (($steam -eq "") -and ($epic -eq "")) { Write-Host "不可以两个文件夹都不存在!`n按任意键退出" -ForegroundColor Red; [Console]::Readkey() | Out-Null; Exit }
+if (($steam -eq "") -and ($epic -eq "")) { Write-Host "It is NOT ALLOWED to have two empty location`nPress anykey to exit" -ForegroundColor Red; [Console]::Readkey() | Out-Null; Exit }
 if ($steam -ne "") { $generalSrc = $steam }
 Else { $generalSrc = $epic }
 
@@ -59,5 +59,5 @@ if($epic -ne ""){
     Rename-Item -Path $epic $epic"_old"
     cmd /c mklink /j $epic $epicDir
 }
-Write-Host "合并完成, 旧文件夹已被命名为原文件夹名_old, 请在测试游戏正常运行后手动删除`n按任意键退出" -ForegroundColor Green
+Write-Host "Merge completed! The old directories have been renamed to NAME_OLD, remove them manually after you ensure the game runs normally.`nPress anykey to exit" -ForegroundColor Green
 [Console]::Readkey() | Out-Null; Exit
