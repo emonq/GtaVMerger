@@ -55,8 +55,19 @@ if ($steam -ne ""){
     Rename-Item -Path $steam $steam"_old"
     cmd /c mklink /j $steam $steamDir
 }
+Else {
+    $steam=Read-Host "Enter the path you are going to install steam GTAV to" -ForegroundColor Yellow
+    cmd /c mklink /j $steam $steamDir
+}
 if($epic -ne ""){
     Rename-Item -Path $epic $epic"_old"
+    cmd /c mklink /j $epic $epicDir
+}
+Else {
+    $epic=Read-Host "Enter the path you are going to install epic GTAV to" -ForegroundColor Yellow
+    Write-Host "!!!!ATTENTION!!!!" -ForegroundColor Red
+    Write-Host "Press anykey after you have start the epic GTAV download process and pause to make epic scan the existed files"
+    [Console]::Readkey()
     cmd /c mklink /j $epic $epicDir
 }
 Write-Host "Merge completed! The old directories have been renamed to NAME_OLD, remove them manually after you ensure the game runs normally.`nPress anykey to exit" -ForegroundColor Green
