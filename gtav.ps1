@@ -68,7 +68,7 @@ Else {
     Write-Host "Enter the path you are going to install epic GTAV to" -ForegroundColor Yellow
     $epic=Read-Host
     Write-Host "!!!!ATTENTION!!!!" -ForegroundColor Red
-    Write-Host "Press anykey after you have start the epic GTAV download process and pause to make epic scan the existed files"
+    Write-Host "Press anykey after you have started the epic GTAV download process and pause to make epic scan the existed files"
     [Console]::Readkey()
     Remove-item $epic\*
     Remove-Item $epic
