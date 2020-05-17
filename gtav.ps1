@@ -50,5 +50,5 @@ Rename-Item -Path $epic $epic+"_old"
 cmd /c mklink /j $steam $steamDir
 cmd /c mklink /j $epic $epicDir
 "Merge completed! You need to remove the old files manually."
-[Console]::Readkey() |　Out-Null
+[Console]::Readkey() | Out-Null
 Exit
